@@ -13,6 +13,7 @@ namespace SklepInternetowy
         protected void Page_Load(object sender, EventArgs e)
         {
             connect();
+            tbSearch.Attributes.Add("placeholder", "Wyszukaj");
         }
 
         MySqlConnection connect()
@@ -74,5 +75,9 @@ namespace SklepInternetowy
             return -1;
         }
 
+        protected void lbtnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
