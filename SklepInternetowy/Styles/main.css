@@ -1,0 +1,96 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form {
+    overflow: auto;
+}
+
+body {
+    background: #353535;
+    margin-top: 77px;
+}
+
+header div {
+    display: inline-block;
+}
+
+header {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    top:0;
+    z-index:999;
+}
+
+#name {
+    color: #deb900;
+    font-size: 38px;
+    font-weight: 600;
+    font-family: 'PT Sans', sans-serif;
+    margin-right: 50px;
+}
+
+#search {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 5px 10px;
+    background: #1d1d1d;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+    #search::after {
+        content: "";
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 1px;
+        background-color: #deb900;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+#tbSearch {
+    background: transparent;
+    color: #fff;
+    border: none;
+    margin-left: 15px;
+}
+
+#login {
+    margin-left: auto;
+}
+
+#lbtnLogin {
+    color: #ffffff;
+}
+
+#cart, #language {
+    margin-left: 50px;
+}
+
+
+
+
+
+
+footer {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+#copyright {
+    color: #666;
+    text-align: center;
+}
