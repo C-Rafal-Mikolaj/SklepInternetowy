@@ -71,10 +71,13 @@
   <ItemGroup>
     <Content Include="Assets\Images\Black-Friday-Banner.jpg" />
     <Content Include="Assets\Images\black-friday-deals.jpg" />
+    <Content Include="Assets\Images\login.png" />
+    <Content Include="Assets\Images\password.png" />
     <Content Include="Assets\Images\search.png" />
     <Content Include="Assets\Images\search_white.png" />
     <Content Include="Assets\Images\shoping.png" />
     <Content Include="Assets\Images\uk.png" />
+    <Content Include="Assets\Images\user.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -83,7 +86,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="PageComponents\Footer.aspx" />
+    <Content Include="PageComponents\Header.aspx" />
     <Content Include="popper\popper.min.js" />
+    <Content Include="register.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -124,6 +131,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encrypter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -134,8 +142,38 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InputValidator.cs" />
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageComponents\Footer.aspx.cs">
+      <DependentUpon>Footer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageComponents\Footer.aspx.designer.cs">
+      <DependentUpon>Footer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageComponents\Header.aspx.cs">
+      <DependentUpon>Header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageComponents\Header.aspx.designer.cs">
+      <DependentUpon>Header.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

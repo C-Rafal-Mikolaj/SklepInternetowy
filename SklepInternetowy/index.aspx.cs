@@ -11,10 +11,26 @@ namespace SklepInternetowy
 {
     public partial class index : System.Web.UI.Page
     {
+         public static Encrypter encrypter = new Encrypter();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             connect();
-            tbSearch.Attributes.Add("placeholder", "Wyszukaj");
+            //tbSearch.Attributes.Add("placeholder", "Wyszukaj");
+            if (Session["user"] != null)
+            {
+                login.Controls.Clear();
+                Image img = new Image();
+                img.ImageUrl = "~/Assets/Images/user.png";
+                img.Width = 40;
+                img.Height = 40;
+                login.Controls.Add(img);
+                LinkButton btn = new LinkButton();
+                btn.ID="lbtnUser";
+                btn.Click += lbtnUser_Click;
+                btn.Text = "Witaj "+((User)Session["user"]).username+"!";
+                login.Controls.Add(btn);
+            }
 
             //Ładowanie produktów
             List<Product> products = getProducts();
@@ -67,7 +83,7 @@ namespace SklepInternetowy
 
         }
 
-        MySqlConnection connect()
+        public static MySqlConnection connect()
         {
             string myconnection =
                "SERVER=localhost;" +
@@ -92,7 +108,7 @@ namespace SklepInternetowy
             return null;
         }
 
-        public int insert(string table, string[] Values)
+        public static int insert(string table, string[] Values)
         {
 
             MySqlConnection conn = connect();
@@ -102,9 +118,9 @@ namespace SklepInternetowy
             string val = "";
             foreach (string value in Values)
             {
-                val += value + ", ";
+                val += value + "', '";
             }
-            val = val.Remove(val.Length-2);
+            val = val.Remove(val.Length-3);
             command.CommandText += val+")";
 
             command.ExecuteNonQuery();
@@ -159,14 +175,40 @@ namespace SklepInternetowy
             return data;
         }
 
-        protected void lbtnLogin_Click(object sender, EventArgs e)
+        public static User getUser(string username)
         {
+            MySqlConnection conn = connect();
+            if (conn == null) return null;
+            MySqlCommand command = conn.CreateCommand();
 
+            command.CommandText = "SELECT * FROM users WHERE username='"+username+"'";
+            MySqlDataReader reader = command.ExecuteReader();
+            User user;
+            reader.Read();
+            if (!reader.HasRows)
+                return null;
+            user = new SklepInternetowy.User((string)reader["username"],(string)reader["salt"], (string)reader["hash"], (bool)reader["admin"]);
+            return user;
         }
 
         protected void btnBuy_Click(object sender, EventArgs e)
         {
             
+        }
+
+        protected void btnCart_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void btnLanguage_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+        
+        protected void lbtnUser_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,13 +4,19 @@
     box-sizing: border-box;
 }
 
+html{
+    min-height:100%;
+}
+
 form {
     overflow: auto;
+    min-height: 100%;
 }
 
 body {
     background: #353535;
     margin-top: 77px;
+    min-height:100%;
 }
 
 header div {
@@ -35,7 +41,13 @@ header {
     font-weight: 600;
     font-family: 'PT Sans', sans-serif;
     margin-right: 50px;
+    
 }
+
+    #name a {
+        text-decoration: none;
+        color: #deb900;
+    }
 
 #search {
     display: flex;
@@ -47,17 +59,17 @@ header {
     border-top-right-radius: 2px;
 }
 
-    #search::after {
-        content: "";
-        position: absolute;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        height: 1px;
-        background-color: #deb900;
-        border-bottom-left-radius: 2px;
-        border-bottom-right-radius: 2px;
-    }
+#search::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 1px;
+    background-color: #deb900;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
 
 #tbSearch {
     background: transparent;
@@ -70,7 +82,7 @@ header {
     margin-left: auto;
 }
 
-#lbtnLogin {
+#lbtnLogin, #lbtnRegister, #lbtnUser {
     color: #ffffff;
 }
 
@@ -79,6 +91,11 @@ header {
 }
 
 
+
+
+#main {
+    color: white;
+}
 
 
 
