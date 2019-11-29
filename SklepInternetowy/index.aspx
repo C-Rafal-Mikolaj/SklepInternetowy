@@ -59,9 +59,8 @@
                 <div class="dropdown">
                     <asp:LinkButton runat="server" ID="btnSort" CssClass="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sortuj wg.</asp:LinkButton>
                     <div class="dropdown-menu" aria-labelledby="btnSort">
-                        <asp:LinkButton runat="server" class="dropdown-item" ID="btnAscending">Cena rosnąco</asp:LinkButton>
-                        <asp:LinkButton runat="server" class="dropdown-item" ID="btnDescending">Cena malejąco</asp:LinkButton>
-                        <asp:LinkButton runat="server" class="dropdown-item" ID="btnNewest">Najnowsze</asp:LinkButton>
+                        <asp:LinkButton runat="server" class="dropdown-item" ID="btnAscending" OnClick="btnAsc">Cena rosnąco</asp:LinkButton>
+                        <asp:LinkButton runat="server" class="dropdown-item" ID="btnDescending" OnClick="btnDesc">Cena malejąco</asp:LinkButton>
                     </div>
                 </div>
                 <div class="dropdown">

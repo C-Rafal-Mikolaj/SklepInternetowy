@@ -7,11 +7,13 @@
 // </generowany automatycznie>
 //------------------------------------------------------------------------------
 
-namespace SklepInternetowy {
-    
-    
-    public partial class index {
-        
+namespace SklepInternetowy
+{
+
+
+    public partial class index
+    {
+
         /// <summary>
         /// Kontrolka form1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// Kontrolka btnSearch.
         /// </summary>
@@ -29,7 +31,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnSearch;
-        
+
         /// <summary>
         /// Kontrolka tbSearch.
         /// </summary>
@@ -38,7 +40,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbSearch;
-        
+
         /// <summary>
         /// Kontrolka lbtnLogin.
         /// </summary>
@@ -47,7 +49,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtnLogin;
-        
+
         /// <summary>
         /// Kontrolka btnCart.
         /// </summary>
@@ -56,7 +58,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnCart;
-        
+
         /// <summary>
         /// Kontrolka btnLanguage.
         /// </summary>
@@ -65,7 +67,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnLanguage;
-        
+
         /// <summary>
         /// Kontrolka imgSlider.
         /// </summary>
@@ -74,7 +76,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgSlider;
-        
+
         /// <summary>
         /// Kontrolka btnSort.
         /// </summary>
@@ -83,7 +85,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSort;
-        
+
         /// <summary>
         /// Kontrolka btnAscending.
         /// </summary>
@@ -92,7 +94,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnAscending;
-        
+
         /// <summary>
         /// Kontrolka btnDescending.
         /// </summary>
@@ -101,16 +103,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnDescending;
-        
-        /// <summary>
-        /// Kontrolka btnNewest.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNewest;
-        
+
         /// <summary>
         /// Kontrolka btnCategory.
         /// </summary>
@@ -119,7 +112,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnCategory;
-        
+
         /// <summary>
         /// Kontrolka pCategory.
         /// </summary>
@@ -128,7 +121,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pCategory;
-        
+
         /// <summary>
         /// Kontrolka btnColor.
         /// </summary>
@@ -137,7 +130,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnColor;
-        
+
         /// <summary>
         /// Kontrolka pColor.
         /// </summary>
@@ -146,7 +139,7 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pColor;
-        
+
         /// <summary>
         /// Kontrolka pItems.
         /// </summary>
