@@ -42,6 +42,15 @@ namespace SklepInternetowy
         protected global::System.Web.UI.WebControls.TextBox tbSearch;
 
         /// <summary>
+        /// Kontrolka login.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl login;
+        
+        /// <summary>
         /// Kontrolka lbtnLogin.
         /// </summary>
         /// <remarks>
@@ -50,6 +59,15 @@ namespace SklepInternetowy
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtnLogin;
 
+        /// <summary>
+        /// Kontrolka lbtnRegister.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnRegister;
+        
         /// <summary>
         /// Kontrolka btnCart.
         /// </summary>

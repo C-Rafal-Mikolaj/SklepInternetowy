@@ -11,28 +11,45 @@ namespace SklepInternetowy
 {
     public partial class index : System.Web.UI.Page
     {
+        public static Encrypter encrypter = new Encrypter();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             connect();
-            tbSearch.Attributes.Add("placeholder", "Wyszukaj");
+            //tbSearch.Attributes.Add("placeholder", "Wyszukaj");
+            if (Session["user"] != null)
+            {
+                login.Controls.Clear();
+                Image img = new Image();
+                img.ImageUrl = "~/Assets/Images/user.png";
+                img.Width = 40;
+                img.Height = 40;
+                login.Controls.Add(img);
+                LinkButton btn = new LinkButton();
+                btn.ID = "lbtnUser";
+                btn.Click += lbtnUser_Click;
+                btn.Text = "Witaj " + ((User)Session["user"]).username + "!";
+                login.Controls.Add(btn);
+            }
 
             //Ładowanie produktów
-            List<Product> products = getProducts("wszystkie","all");
+            List<Product> products = getProducts("wszystkie", "all");
             int i = 0;
-            HtmlGenericControl[] containers = new HtmlGenericControl[(int)(products.Count/4)+1];
-            for(int j =0;j<containers.Length;j++)
+            HtmlGenericControl[] containers = new HtmlGenericControl[(int)(products.Count / 4) + 1];
+            for (int j = 0; j < containers.Length; j++)
             {
                 containers[j] = new HtmlGenericControl("div");
                 containers[j].Attributes["class"] = "row";
             }
-            foreach(Product product in products)
+            foreach (Product product in products)
             {
-                containers[(int)(i/4)].Controls.Add(product.getHtmlSmall());
+                containers[(int)(i / 4)].Controls.Add(product.getHtmlSmall());
                 product.btnBuy.Click += btnBuy_Click;
                 i++;
             }
-            if(i%4!=0)
-                for(int j = 0; j < 4 - i % 4; j++) {
+            if (i % 4 != 0)
+                for (int j = 0; j < 4 - i % 4; j++)
+                {
                     HtmlGenericControl col = new HtmlGenericControl("div");
                     col.Attributes["class"] = "col productEmpty";
                     containers[(int)(i / 4)].Controls.Add(col);
@@ -44,10 +61,10 @@ namespace SklepInternetowy
 
             //Ładowanie kategorii
             List<string> categories = getCategories();
-            foreach(string category in categories)
+            foreach (string category in categories)
             {
                 LinkButton btn = new LinkButton();
-                btn.Text = category[0].ToString().ToUpper()+category.Substring(1);
+                btn.Text = category[0].ToString().ToUpper() + category.Substring(1);
                 btn.Click += choosingCategories;
                 btn.CommandArgument = category[0].ToString().ToUpper() + category.Substring(1);
                 btn.CssClass = "dropdown-item";
@@ -80,7 +97,7 @@ namespace SklepInternetowy
 
         }
 
-        MySqlConnection connect()
+        public static MySqlConnection connect()
         {
             string myconnection =
                "SERVER=localhost;" +
@@ -105,20 +122,20 @@ namespace SklepInternetowy
             return null;
         }
 
-        public int insert(string table, string[] Values)
+        public static int insert(string table, string[] Values)
         {
 
             MySqlConnection conn = connect();
             if (conn == null) return -1;
             MySqlCommand command = conn.CreateCommand();
-            command.CommandText = "INSERT INTO "+table+" VALUES ('";
+            command.CommandText = "INSERT INTO " + table + " VALUES ('";
             string val = "";
             foreach (string value in Values)
             {
-                val += value + ", ";
+                val += value + "', '";
             }
-            val = val.Remove(val.Length-2);
-            command.CommandText += val+")";
+            val = val.Remove(val.Length - 3);
+            command.CommandText += val + ")";
 
             command.ExecuteNonQuery();
             return 0;
@@ -129,23 +146,23 @@ namespace SklepInternetowy
             MySqlConnection conn = connect();
             if (conn == null) return null;
             MySqlCommand command = conn.CreateCommand();
-            if(type == "wszystkie")
+            if (type == "wszystkie")
             {
                 command.CommandText = "SELECT * FROM produkty";
             }
-            else if(type2 == "category")
+            else if (type2 == "category")
             {
                 command.CommandText = "SELECT * FROM produkty WHERE category = '" + type + "'";
             }
-            else if(type2 == "color")
+            else if (type2 == "color")
             {
                 command.CommandText = "SELECT * FROM produkty WHERE color = '" + type + "'";
             }
-            else if(type == "wszystkieDESC")
+            else if (type == "wszystkieDESC")
             {
                 command.CommandText = "SELECT * FROM produkty ORDER BY price DESC";
             }
-            else if(type == "wszystkieASC")
+            else if (type == "wszystkieASC")
             {
                 command.CommandText = "SELECT * FROM produkty ORDER BY price ASC";
             }
@@ -153,7 +170,7 @@ namespace SklepInternetowy
             List<Product> data = new List<Product>();
             while (reader.Read())
             {
-                data.Add(new Product((int)reader["ID"],(string)reader["name"], (string)reader["description"], (double)reader["price"], (string)reader["color"], (string)reader["image"], (string)reader["category"]));
+                data.Add(new Product((int)reader["ID"], (string)reader["name"], (string)reader["description"], (double)reader["price"], (string)reader["color"], (string)reader["image"], (string)reader["category"]));
             }
             return data;
         }
@@ -190,14 +207,20 @@ namespace SklepInternetowy
             return data;
         }
 
-        protected void lbtnLogin_Click(object sender, EventArgs e)
+        public static User getUser(string username)
         {
+            MySqlConnection conn = connect();
+            if (conn == null) return null;
+            MySqlCommand command = conn.CreateCommand();
 
-        }
-
-        protected void btnBuy_Click(object sender, EventArgs e)
-        {
-            
+            command.CommandText = "SELECT * FROM users WHERE username='" + username + "'";
+            MySqlDataReader reader = command.ExecuteReader();
+            User user;
+            reader.Read();
+            if (!reader.HasRows)
+                return null;
+            user = new SklepInternetowy.User((string)reader["username"], (string)reader["salt"], (string)reader["hash"], (bool)reader["admin"]);
+            return user;
         }
 
         protected void choosingCategories(object sender, EventArgs e)
@@ -206,7 +229,7 @@ namespace SklepInternetowy
             string txt = now.Text;
             pItems.Controls.Clear();
             txt = txt.ToLower();
-            List<Product> products = getProducts(txt,"category");
+            List<Product> products = getProducts(txt, "category");
             int i = 0;
             HtmlGenericControl[] containers = new HtmlGenericControl[(int)(products.Count / 4) + 1];
             for (int j = 0; j < containers.Length; j++)
@@ -238,7 +261,7 @@ namespace SklepInternetowy
             string txt = now.Text;
             pItems.Controls.Clear();
             txt = txt.ToLower();
-            List<Product> products = getProducts(txt,"color");
+            List<Product> products = getProducts(txt, "color");
             int i = 0;
             HtmlGenericControl[] containers = new HtmlGenericControl[(int)(products.Count / 4) + 1];
             for (int j = 0; j < containers.Length; j++)
@@ -321,6 +344,23 @@ namespace SklepInternetowy
             {
                 pItems.Controls.Add(containers[j]);
             }
+        }
+        protected void btnCart_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void btnLanguage_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void lbtnUser_Click(object sender, EventArgs e)
+        {
+        }
+        protected void btnBuy_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
