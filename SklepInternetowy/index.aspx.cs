@@ -357,6 +357,7 @@ namespace SklepInternetowy
 
         protected void lbtnUser_Click(object sender, EventArgs e)
         {
+            Response.Redirect("/Account.aspx");
         }
         protected void btnBuy_Click(object sender, EventArgs e)
         {
