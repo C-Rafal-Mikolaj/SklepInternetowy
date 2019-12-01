@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace SklepInternetowy
 {
-    public partial class Account : System.Web.UI.Page
+    public partial class Cart : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,12 +29,10 @@ namespace SklepInternetowy
                 login.Controls.Add(img);
                 LinkButton btn = new LinkButton();
                 btn.ID = "lbtnUser";
-                btn.Attributes.Add("href","/Account.aspx");
+                btn.Attributes.Add("href", "/Account.aspx");
                 btn.Text = "Witaj " + ((User)Session["user"]).username + "!";
                 login.Controls.Add(btn);
             }
-
-            
         }
 
         protected void btnCart_Click(object sender, ImageClickEventArgs e)
@@ -48,10 +45,5 @@ namespace SklepInternetowy
 
         }
 
-        protected void lbtnLogout_Click(object sender, EventArgs e)
-        {
-            Session["user"] = null;
-            Response.Redirect("/index.aspx");
-        }
     }
 }

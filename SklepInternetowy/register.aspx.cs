@@ -43,7 +43,7 @@ namespace SklepInternetowy
             string hash = index.encrypter.GetHash(tbPassword.Text, salt);
 
 
-            index.insert("users", new string[] { null, tbLogin.Text, salt, hash, null});
+            index.insert("users", new string[] { tbLogin.Text, salt, hash, null});
             lValid.Text = "Stworzono użytkownika!";
 
         }

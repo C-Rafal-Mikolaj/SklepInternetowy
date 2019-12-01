@@ -10,7 +10,7 @@
 namespace SklepInternetowy {
     
     
-    public partial class Account {
+    public partial class Cart {
         
         /// <summary>
         /// Kontrolka form1.
@@ -83,23 +83,5 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnLanguage;
-        
-        /// <summary>
-        /// Kontrolka lbtnLogout.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnLogout;
-        
-        /// <summary>
-        /// Kontrolka LinkButton4.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
     }
 }

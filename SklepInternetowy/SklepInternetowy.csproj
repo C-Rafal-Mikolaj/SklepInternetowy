@@ -96,6 +96,7 @@
     <Content Include="Assets\Images\shoping.png" />
     <Content Include="Assets\Images\uk.png" />
     <Content Include="Assets\Images\user.png" />
+    <Content Include="Cart.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -163,6 +164,13 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Encrypter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -182,6 +190,7 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="PageComponents\Footer.aspx.cs">
       <DependentUpon>Footer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Images\Uploaded\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

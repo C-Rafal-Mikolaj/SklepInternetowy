@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="SklepInternetowy.Account" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="SklepInternetowy.Cart" %>
 
 <!DOCTYPE html>
 
@@ -22,14 +22,7 @@
 
         <div id="main">
             <div class="container">
-                <div id="menu">
-                    <asp:LinkButton runat="server" ID="lbtnLogout" OnClick="lbtnLogout_Click">Wyloguj</asp:LinkButton>
-                    
-                    <asp:LinkButton runat="server" ID="LinkButton4">JD</asp:LinkButton>
-                </div>
-                <div id="content">
-
-                </div>
+                
             </div>
         </div>
         <!--#include virtual="/PageComponents/Footer.aspx"-->

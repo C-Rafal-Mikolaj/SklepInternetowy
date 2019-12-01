@@ -347,7 +347,7 @@ namespace SklepInternetowy
         }
         protected void btnCart_Click(object sender, ImageClickEventArgs e)
         {
-
+            Response.Redirect("/Cart.aspx");
         }
 
         protected void btnLanguage_Click(object sender, ImageClickEventArgs e)
