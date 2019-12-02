@@ -95,6 +95,7 @@ namespace SklepInternetowy
 
         protected void lbtnLogout_Click(object sender, EventArgs e)
         {
+            Session["array"] = null;
             Session["user"] = null;
             Response.Redirect("/index.aspx");
         }

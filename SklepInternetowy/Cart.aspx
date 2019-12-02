@@ -12,6 +12,18 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Styles/main.css" rel="stylesheet" />
+    <style>
+        td{
+            margin-bottom: 5px;
+        }
+        .t{
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        #buttons{
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,7 +34,18 @@
 
         <div id="main">
             <div class="container">
-                
+                <asp:Table ID="myTable" runat="server" Width="100%"> 
+                    <asp:TableRow>
+                        <asp:TableCell CssClass="t">ID</asp:TableCell>
+                        <asp:TableCell CssClass="t">Nazwa</asp:TableCell>
+                        <asp:TableCell CssClass="t">Cena</asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                <div id="buttons">
+                    <asp:LinkButton ID="clr" runat="server" onClick="clr_Click">Wyczyść koszyk</asp:LinkButton>
+                    <br />
+                    <asp:LinkButton ID="sv" runat="server" onClick="sv_Click">Zatwierdż</asp:LinkButton>
+                </div>
             </div>
         </div>
         <!--#include virtual="/PageComponents/Footer.aspx"-->

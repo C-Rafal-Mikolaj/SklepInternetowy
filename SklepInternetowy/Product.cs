@@ -56,11 +56,11 @@ namespace SklepInternetowy
             container.Controls.Add(price);
 
             Button button = new Button();
+            button.ToolTip = this.name;
             button.Text = this.buy;
             button.CssClass = "productBuy";
             this.btnBuy = button;
             container.Controls.Add(button);
-
 
             return container;
         }

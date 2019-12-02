@@ -420,7 +420,19 @@ namespace SklepInternetowy
         protected void btnBuy_Click(object sender, EventArgs e)
         {
             
-            MessageBox(this, "Dodano przedmiot do koszyka!");
+            try
+            {
+                Button now = (Button)sender;
+                List<string> previous = (List<string>)Session["array"];
+                previous.Add(now.ToolTip);
+                Session["array"] = previous;
+                string spoko = "";
+            }
+            catch
+            {
+                string failed = "";
+            }
+            
         }
 
         public static void MessageBox(System.Web.UI.Page page, string strMsg)

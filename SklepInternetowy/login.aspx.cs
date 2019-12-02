@@ -54,7 +54,10 @@ namespace SklepInternetowy
             string hash = index.encrypter.GetHash(tbPassword.Text, salt);
             if (hash == user.hash)
             {
+                var array = new List<string>();
+                Session["array"] = array;
                 lValid.Text = "Zalogowano";
+                Session["loged"] = true;
                 Session["user"] = user;
                 Response.Redirect("/index.aspx");
             }
