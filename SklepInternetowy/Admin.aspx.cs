@@ -26,6 +26,16 @@ namespace SklepInternetowy
                 lbtnLogout.Text = "Log out";
                 lbtnMngOrders.Text = "Manage orders";
                 lbtnMngUsers.Text = "Manage users";
+                usersTitle.InnerText = "Users";
+                ordersTitle.InnerText = "Orders";
+                itemsTitle.InnerText = "Items";
+                btnAdd.Text = "Add";
+                divName.InnerText = "Name: ";
+                divDesc.InnerText = "Description: ";
+                divPrice.InnerText = "Price: ";
+                divPicture.InnerText = "Picture: ";
+                divCategory.InnerText = "Category: ";
+                divColor.InnerText = "Color: ";
             }
 
             if (Session["user"] == null)

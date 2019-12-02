@@ -112,6 +112,15 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl content;
         
         /// <summary>
+        /// Kontrolka yourOrders.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl yourOrders;
+        
+        /// <summary>
         /// Kontrolka Orders.
         /// </summary>
         /// <remarks>

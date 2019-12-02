@@ -13,16 +13,53 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Styles/main.css" rel="stylesheet" />
     <style>
+        #main{
+            padding: 30px 0;
+            text-align:center;
+        }
+        table{
+            border:1px solid #deb900;
+        }
         td{
             margin-bottom: 5px;
+            background-color: #282828;
         }
         .t{
             font-weight: bold;
             margin-bottom: 15px;
+            border-bottom:1px solid #deb900;
+            background-color:#1d1d1d;
         }
         #buttons{
             margin-top: 20px;
+            display:flex;
+            justify-content:space-around;
+            align-content:center;
         }
+        #clr, #sv{
+            background-color: #deb900;
+            border: none;
+            padding: 5px;
+            border-radius: 3px;
+            color:#000;
+            text-decoration:none;
+        }
+        .sumTotal{
+            margin-left:auto;
+            padding:5px;
+            font-weight: bold;
+            border-bottom:1px solid #deb900;
+            border-left:1px solid #deb900;
+            border-right:1px solid #deb900;
+            background-color:#1d1d1d;
+            width:237px;
+        }
+        @media (max-width: 1199.98px) { 
+            .sumTotal{
+                width:100%;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -34,13 +71,15 @@
 
         <div id="main">
             <div class="container">
-                <asp:Table ID="myTable" runat="server" Width="100%"> 
-                    <asp:TableRow>
-                        <asp:TableCell CssClass="t">ID</asp:TableCell>
-                        <asp:TableCell CssClass="t">Nazwa</asp:TableCell>
-                        <asp:TableCell CssClass="t">Cena</asp:TableCell>
-                    </asp:TableRow>
-                </asp:Table>
+                <div class="row justify-content-center" id="tableContainer" runat="server">
+                    <asp:Table ID="myTable" runat="server" Width="100%"> 
+                        <asp:TableRow>
+                            <asp:TableCell CssClass="t">ID</asp:TableCell>
+                            <asp:TableCell CssClass="t" ID="TRname">Nazwa</asp:TableCell>
+                            <asp:TableCell CssClass="t" ID="TRprice">Cena</asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
+                </div>
                 <div id="buttons">
                     <asp:LinkButton ID="clr" runat="server" onClick="clr_Click">Wyczyść koszyk</asp:LinkButton>
                     <br />

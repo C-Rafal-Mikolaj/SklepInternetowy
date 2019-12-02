@@ -121,15 +121,6 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.WebControls.LinkButton lbtnAddItem;
         
         /// <summary>
-        /// Kontrolka lbtnMng2.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnMng2;
-        
-        /// <summary>
         /// Kontrolka content.
         /// </summary>
         /// <remarks>
@@ -148,6 +139,15 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mngUsers;
         
         /// <summary>
+        /// Kontrolka usersTitle.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl usersTitle;
+        
+        /// <summary>
         /// Kontrolka mngOrders.
         /// </summary>
         /// <remarks>
@@ -155,6 +155,15 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mngOrders;
+        
+        /// <summary>
+        /// Kontrolka ordersTitle.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ordersTitle;
         
         /// <summary>
         /// Kontrolka addItem.
@@ -166,6 +175,24 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl addItem;
         
         /// <summary>
+        /// Kontrolka itemsTitle.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemsTitle;
+        
+        /// <summary>
+        /// Kontrolka divName.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divName;
+        
+        /// <summary>
         /// Kontrolka tbName.
         /// </summary>
         /// <remarks>
@@ -173,6 +200,15 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbName;
+        
+        /// <summary>
+        /// Kontrolka divDesc.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDesc;
         
         /// <summary>
         /// Kontrolka tbDesc.
@@ -184,6 +220,15 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.WebControls.TextBox tbDesc;
         
         /// <summary>
+        /// Kontrolka divPrice.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPrice;
+        
+        /// <summary>
         /// Kontrolka tbPrice.
         /// </summary>
         /// <remarks>
@@ -191,6 +236,15 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbPrice;
+        
+        /// <summary>
+        /// Kontrolka divColor.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divColor;
         
         /// <summary>
         /// Kontrolka tbColor.
@@ -202,6 +256,15 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.WebControls.TextBox tbColor;
         
         /// <summary>
+        /// Kontrolka divPicture.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPicture;
+        
+        /// <summary>
         /// Kontrolka fuPicture.
         /// </summary>
         /// <remarks>
@@ -209,6 +272,15 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuPicture;
+        
+        /// <summary>
+        /// Kontrolka divCategory.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCategory;
         
         /// <summary>
         /// Kontrolka tbCategory.

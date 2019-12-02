@@ -14,7 +14,62 @@
     <link href="Styles/main.css" rel="stylesheet" />
     <style>
         #lValid{
-            height:21px;
+            display:block;
+            margin:5px;
+            padding:2px;
+        }
+        #formcontainer{
+            margin: 20px auto;
+            display:inline-block;
+            text-align:center;
+        }
+
+        #log, #password {
+            display: flex;
+            position: relative;
+            align-items: center;
+            padding: 5px 10px;
+            background: #1d1d1d;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            margin:10px;
+        }
+
+        #log::after, #password::after {
+            content: "";
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            height: 1px;
+            background-color: #deb900;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+        #tbLogin, #tbPassword{
+            background: transparent;
+            color: #fff;
+            border: none;
+            margin-left: 15px;
+            flex:1;
+        }
+        #text{
+            text-align:center;
+            font-size:2em;
+        }
+        #btnLogin{
+            background-color: #deb900;
+            border:none;
+            padding:5px;
+            border-radius:3px;
+            margin:10px;
+            padding:5px 10px;
+        }
+        #formcontainer a{
+            color: #fff;
+            display:block;
+            margin:5px;
+            padding:2px;
         }
     </style>
 </head>
@@ -27,12 +82,17 @@
 
         <div id="main">
             <div class="container">
-                Login: <asp:TextBox runat="server" ID="tbLogin"></asp:TextBox>
-                Hasło: <asp:TextBox runat="server" ID="tbPassword" TextMode="Password"></asp:TextBox>
-                <asp:Button runat="server" ID="btnLogin" Text="Zaloguj" OnClick="btnLogin_Click"/>
-                <asp:Label runat="server" ID="lValid"></asp:Label>
-                <a href="index.aspx"  id="linkLogin" runat="server">Powrót do strony głównej</a>
-                <a href="register.aspx"  id="linkReturn" runat="server">Nie masz konta? Zarejestruj się</a>
+                <div class="row justify-content-center">
+                    <div id="formcontainer">
+                        <div id="text">Zaloguj się do E-Bazarku!</div>
+                        <div id="log"> <asp:Image runat="server" ImageUrl="~/Assets/Images/login.png" Width="30" Height="30" /> <asp:TextBox runat="server" ID="tbLogin" placeholder="Login"></asp:TextBox></div>
+                        <div id="password"><asp:Image runat="server" ImageUrl="~/Assets/Images/password.png" Width="30" Height="30"/> <asp:TextBox runat="server" ID="tbPassword" TextMode="Password" placeholder="Hasło"></asp:TextBox></div>
+                        <asp:Button runat="server" ID="btnLogin" Text="Zaloguj" OnClick="btnLogin_Click"/>
+                        <asp:Label runat="server" ID="lValid"></asp:Label>
+                        <a href="register.aspx"  id="linkLogin" runat="server">Nie masz konta? Zarejestruj się</a>
+                        <a href="index.aspx"  id="linkReturn" runat="server">Powrót do strony głównej</a>
+                    </div>
+                </div>
             </div>
         </div>
         <!--#include virtual="/PageComponents/Footer.aspx"-->

@@ -427,10 +427,12 @@ namespace SklepInternetowy
                 previous.Add(now.ToolTip);
                 Session["array"] = previous;
                 string spoko = "";
+                //MessageBox(this, "Dodano do koszyka!");
             }
             catch
             {
                 string failed = "";
+                //MessageBox(this, "Nie udało się dodać do koszyka");
             }
             
         }

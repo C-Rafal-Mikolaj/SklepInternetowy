@@ -85,6 +85,15 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.WebControls.ImageButton btnLanguage;
         
         /// <summary>
+        /// Kontrolka tableContainer.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tableContainer;
+        
+        /// <summary>
         /// Kontrolka myTable.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,24 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table myTable;
+        
+        /// <summary>
+        /// Kontrolka TRname.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TRname;
+        
+        /// <summary>
+        /// Kontrolka TRprice.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TRprice;
         
         /// <summary>
         /// Kontrolka clr.

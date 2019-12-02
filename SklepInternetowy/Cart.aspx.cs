@@ -45,6 +45,10 @@ namespace SklepInternetowy
                 lbtnLogin.Text = "Log in";
                 lbtnRegister.Text = "Register";
                 btnLanguage.ImageUrl = "/Assets/Images/pl.svg";
+                TRname.Text = "Name";
+                TRprice.Text = "Price";
+                sv.Text = "Confirm";
+                clr.Text = "Clear your cart";
             }
             if (Session["user"] == null)
             {
@@ -72,6 +76,7 @@ namespace SklepInternetowy
                 }
                 login.Controls.Add(btn);
                 List<string> all = (List<string>)Session["array"];
+                double sum = 0;
                 for (int i = 0; i < all.Count; i++)
                 {
                     TableRow row = new TableRow();
@@ -96,11 +101,25 @@ namespace SklepInternetowy
                     row.Cells.Add(cell2);
                     TableCell cell3 = new TableCell();
                     string myString2 = data[0].price.ToString();
+                    sum += data[0].price;
                     cell3.Text = myString2;
                     row.Cells.Add(cell3);
                     myTable.Rows.Add(row);
 
                 }
+                string suma;
+                if ((string)Session["lang"] == "eng")
+                {
+                    suma = "Total: " + sum.ToString();
+                }
+                else
+                {
+                    suma= "W sumie: " + sum.ToString();
+                }
+                HtmlGenericControl div = new HtmlGenericControl("div");
+                div.Attributes.Add("class", "sumTotal");
+                div.InnerText = suma;
+                tableContainer.Controls.Add(div);
             }
 
         }
@@ -154,13 +173,14 @@ namespace SklepInternetowy
                     
                 }
                 MySqlCommand command2 = conn2.CreateCommand();
-                command2.CommandText = "INSERT INTO orders (username, item,status) VALUES ('" + Session["user"] + "'" + ", " + "'" + data[0].ID + "'" + ", " + "'oczekujace'" + ");";
+                command2.CommandText = "INSERT INTO orders (username, item,status) VALUES ('" + ((User)Session["user"]).username + "'" + ", " + "'" + data[0].ID + "'" + ", " + "'oczekujace'" + ");";
                 command2.ExecuteReader(); 
                 
                 
             }
             List<string> array = new List<string>();
             Session["array"] = array;
+            //index.MessageBox(this, "Dziękujemy za zakupy!");
             Response.Redirect("/index.aspx");
         }
     }
