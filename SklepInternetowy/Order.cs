@@ -37,7 +37,7 @@ namespace SklepInternetowy
             username.InnerText = "Username: " + this.username;
             container.Controls.Add(username);
             HtmlGenericControl item = new HtmlGenericControl("div");
-            item.Attributes.Add("class", "orderItem");
+            item.Attributes.Add("class", "orderIt");
             item.InnerText = "Item: " + this.item;
             container.Controls.Add(item);
             
@@ -84,7 +84,7 @@ namespace SklepInternetowy
             username.InnerText = "Username: " + this.username;
             container.Controls.Add(username);
             HtmlGenericControl item = new HtmlGenericControl("div");
-            item.Attributes.Add("class", "orderItem");
+            item.Attributes.Add("class", "orderIt");
             item.InnerText = "Item: " + this.item;
             container.Controls.Add(item);
             

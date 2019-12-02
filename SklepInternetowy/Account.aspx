@@ -12,6 +12,72 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Styles/main.css" rel="stylesheet" />
+    <style>
+        #opt {
+            display: flex;
+            position: relative;
+            align-items: center;
+            padding: 5px 10px;
+            background: #1d1d1d;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            margin:10px;
+            color: #fff;
+        }
+        #optLO{
+            display: flex;
+            position: relative;
+            align-items: center;
+            padding: 5px 10px;
+            background: #1d1d1d;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            margin:10px;
+            color: red;
+        }
+        #container{
+            margin: 20px auto;
+            display:inline-block;
+            text-align:center;
+        }
+
+         #optLO::after, #opt::after {
+            content: "";
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            height: 1px;
+            background-color: #deb900;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+         #menu{
+             display: flex;
+             flex-direction: row;
+         }
+         #content{
+             padding: 10px;
+         }
+         .title{
+             text-align:center;
+            font-size:1.7em;
+         }
+         #menu a{
+             text-decoration:none;
+             color: #deb900;
+         }
+         #Orders{
+              display: flex;
+               flex-flow: row nowrap;
+               text-align:center;
+         }
+         .orderItem{
+             width: 33.3%;
+            height: 33.3%;
+         }
+
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,14 +88,16 @@
 
         <div id="main">
             <div class="container">
-                <div id="menu">
-                    <asp:LinkButton runat="server" ID="lbtnLogout" OnClick="lbtnLogout_Click">Wyloguj</asp:LinkButton>
-                    
-                    <asp:LinkButton runat="server" ID="lbtnOrders">Twoje zamówienia</asp:LinkButton>
+                <div class="row justify-content-center">
+                    <div id="menu">
+                        <div id="opt"> <asp:LinkButton runat="server" ID="lbtnLogout" OnClick="lbtnLogout_Click">Wyloguj</asp:LinkButton></div>
+                        <div id="optLO"> <asp:LinkButton runat="server" ID="lbtnOrders">Twoje zamówienia</asp:LinkButton></div>
+                    </div>
                 </div>
                 <div id="content" runat="server">
+                    <div class="title" id="yourOrders" runat="server">Twoje zamówienia</div>
                     <div id="Orders" runat="server">
-                        <div class="title" id="yourOrders" runat="server">Twoje zamówienia</div>
+                        
                     </div>
                 </div>
             </div>

@@ -112,15 +112,6 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl content;
         
         /// <summary>
-        /// Kontrolka Orders.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Orders;
-        
-        /// <summary>
         /// Kontrolka yourOrders.
         /// </summary>
         /// <remarks>
@@ -128,5 +119,14 @@ namespace SklepInternetowy {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl yourOrders;
+        
+        /// <summary>
+        /// Kontrolka Orders.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Orders;
     }
 }
