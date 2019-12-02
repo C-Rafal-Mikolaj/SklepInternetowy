@@ -29,7 +29,7 @@
                 </div>
                 <div id="content" runat="server">
                     <div id="Orders" runat="server">
-                        <div class="title">Twoje zamówienia</div>
+                        <div class="title" id="yourOrders" runat="server">Twoje zamówienia</div>
                     </div>
                 </div>
             </div>

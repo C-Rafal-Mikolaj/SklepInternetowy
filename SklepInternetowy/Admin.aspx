@@ -34,19 +34,19 @@
                 </div>
                 <div id="content" runat="server">
                     <div id="mngUsers" runat="server">
-                        <div class="title">Użytkownicy</div>
+                        <div class="title" id="usersTitle" runat="server">Użytkownicy</div>
                     </div>
                     <div id="mngOrders" runat="server">
-                        <div class="title">Zamówienia</div>
+                        <div class="title" id="ordersTitle" runat="server">Zamówienia</div>
                     </div>
                     <div id="addItem" runat="server">
-                        <div class="title">Dodaj przedmiot</div>
-                        Nazwa: <asp:TextBox runat="server" ID="tbName"></asp:TextBox>
-                        Opis: <asp:TextBox runat="server" ID="tbDesc"></asp:TextBox>
-                        Cena: <asp:TextBox runat="server" ID="tbPrice" TextMode="Number" step="any"></asp:TextBox>
-                        Kolor: <asp:TextBox runat="server" ID="tbColor"></asp:TextBox>
-                        Obrazek: <asp:FileUpload runat="server" ID="fuPicture" />
-                        Kategoria: <asp:TextBox runat="server" ID="tbCategory"></asp:TextBox>
+                        <div class="title" id="itemsTitle" runat="server">Dodaj przedmiot</div>
+                        <span id="divName" runat="server">Nazwa:</span> <asp:TextBox runat="server" ID="tbName"></asp:TextBox>
+                         <span id="divDesc" runat="server">Opis:</span> <asp:TextBox runat="server" ID="tbDesc"></asp:TextBox>
+                         <span id="divPrice" runat="server">Cena: </span><asp:TextBox runat="server" ID="tbPrice" TextMode="Number" step="any"></asp:TextBox>
+                         <span id="divColor" runat="server">Kolor: </span><asp:TextBox runat="server" ID="tbColor"></asp:TextBox>
+                         <span id="divPicture" runat="server">Obrazek: </span><asp:FileUpload runat="server" ID="fuPicture" />
+                         <span id="divCategory" runat="server">Kategoria:</span> <asp:TextBox runat="server" ID="tbCategory"></asp:TextBox>
                         <asp:Button runat="server" ID="btnAdd" Text="Dodaj" OnClick="btnAdd_Click" />
                         <asp:Label runat="server" ID="lStatus"></asp:Label>
                     </div>

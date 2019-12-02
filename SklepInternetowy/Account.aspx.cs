@@ -22,6 +22,7 @@ namespace SklepInternetowy
                 btnLanguage.ImageUrl = "/Assets/Images/pl.svg";
                 lbtnLogout.Text = "Log out";
                 lbtnOrders.Text = "Your orders";
+                yourOrders.InnerText = "Your orders";
             }
 
             if (Session["user"] == null)
