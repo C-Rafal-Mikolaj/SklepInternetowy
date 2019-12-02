@@ -2,3 +2,4 @@ packages/* linguist-vendored=false
 Content/* linguist-vendored=false
 Scripts/* linguist-vendored=false
 popper/* linguist-vendored=false
+.vs/* linguist-vendored=false
