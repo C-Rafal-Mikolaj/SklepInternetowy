@@ -75,19 +75,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-       <!--#include virtual="/PageComponents/Header.aspx"-->
+       <header runat="server">
+            <div id="name"><a href="/index.aspx">E-Bazarek</a></div>
+            <div id="search"><asp:ImageButton ID="btnSearch" runat="server" Height="30" Width="30" ImageUrl="~/Assets/Images/search_white.png" OnClick="btnSearch_Click" /><asp:TextBox ID="tbSearch" runat="server" placeholder="Wyszukaj"></asp:TextBox></div><div id="login" runat="server"><asp:LinkButton ID="lbtnLogin" runat="server" href="/login.aspx">Zaloguj</asp:LinkButton> / <asp:LinkButton runat="server" ID="lbtnRegister" href="/register.aspx">Zarejestruj się</asp:LinkButton></div><div id="cart"><asp:ImageButton runat="server" ID="btnCart" ImageUrl="~/Assets/Images/shoping.png" Height="40" Width="40" OnClick="btnCart_Click"/></div><div id="language"><asp:ImageButton runat="server" ID="btnLanguage" ImageUrl="~/Assets/Images/uk.png" Height="40" Width="40" OnClick="btnLanguage_Click"/></div>
+        </header>
 
         <div id="main">
             <div class="container">
                 <div class="row justify-content-center">
                     <div id="formcontainer">
-                        <div id="text">Zarejestruj się na E-Bazarku!</div>
+                        <div id="text" runat="server">Zarejestruj się na E-Bazarku!</div>
                         <div id="log"> <asp:Image runat="server" ImageUrl="~/Assets/Images/login.png" Width="30" Height="30" /> <asp:TextBox runat="server" ID="tbLogin" placeholder="Login"></asp:TextBox></div>
                         <div id="password"><asp:Image runat="server" ImageUrl="~/Assets/Images/password.png" Width="30" Height="30"/> <asp:TextBox runat="server" ID="tbPassword" TextMode="Password" placeholder="Hasło"></asp:TextBox></div>
                         <asp:Label runat="server" ID="lValid"></asp:Label>
                         <asp:Button runat="server" ID="btnLogin" Text="Zarejestruj się" OnClick="btnLogin_Click"/>
-                        <a href="login.aspx">Masz już konto? Zaloguj się</a>
-                        <a href="index.aspx">Powrót do strony głównej</a>
+                        <a href="login.aspx" id="linkLogin" runat="server">Masz już konto? Zaloguj się</a>
+                        <a href="index.aspx" id="linkReturn" runat="server">Powrót do strony głównej</a>
                     </div>
                 </div>
             </div>

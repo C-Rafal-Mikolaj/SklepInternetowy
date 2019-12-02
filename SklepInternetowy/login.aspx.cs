@@ -11,6 +11,19 @@ namespace SklepInternetowy
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((string)Session["lang"] == "eng")
+            {
+                tbSearch.Attributes["placeholder"] = "Search";
+                lbtnLogin.Text = "Log in";
+                lbtnRegister.Text = "Register";
+                btnLanguage.ImageUrl = "/Assets/Images/pl.svg";
+                tbPassword.Attributes["placeholder"] = "Password";
+                btnLogin.Text = "Login";
+                linkLogin.InnerText = "Don't have an account? Register now!";
+                linkReturn.InnerText = "Return to home page";
+                //text.InnerText = "Log in on E-Bazarek!";
+            }
+
             if (Session["user"] != null)
             {
                 Response.Redirect("/index.aspx");
@@ -19,8 +32,8 @@ namespace SklepInternetowy
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string loginMsg = InputValidator.isValidLogin(tbLogin.Text);
-            string passMsg = InputValidator.isValidPassword(tbPassword.Text);
+            string loginMsg = InputValidator.isValidLogin(tbLogin.Text, (string)Session["lang"]);
+            string passMsg = InputValidator.isValidPassword(tbPassword.Text, (string)Session["lang"]);
             if (loginMsg!=null)
             {
                 lValid.Text = loginMsg;

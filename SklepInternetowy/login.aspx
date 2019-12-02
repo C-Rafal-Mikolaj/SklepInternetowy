@@ -20,7 +20,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <!--#include virtual="/PageComponents/Header.aspx"-->
+        <header runat="server">
+            <div id="name"><a href="/index.aspx">E-Bazarek</a></div>
+            <div id="search"><asp:ImageButton ID="btnSearch" runat="server" Height="30" Width="30" ImageUrl="~/Assets/Images/search_white.png" OnClick="btnSearch_Click" /><asp:TextBox ID="tbSearch" runat="server" placeholder="Wyszukaj"></asp:TextBox></div><div id="login"><asp:LinkButton ID="lbtnLogin" runat="server" href="/login.aspx">Zaloguj</asp:LinkButton> / <asp:LinkButton runat="server" ID="lbtnRegister" href="/register.aspx">Zarejestruj się</asp:LinkButton></div><div id="cart"><asp:ImageButton runat="server" ID="btnCart" ImageUrl="~/Assets/Images/shoping.png" Height="40" Width="40" OnClick="btnCart_Click"/></div><div id="language"><asp:ImageButton runat="server" ID="btnLanguage" ImageUrl="~/Assets/Images/uk.png" Height="40" Width="40" OnClick="btnLanguage_Click"/></div>
+        </header>
 
         <div id="main">
             <div class="container">
@@ -28,8 +31,8 @@
                 Hasło: <asp:TextBox runat="server" ID="tbPassword" TextMode="Password"></asp:TextBox>
                 <asp:Button runat="server" ID="btnLogin" Text="Zaloguj" OnClick="btnLogin_Click"/>
                 <asp:Label runat="server" ID="lValid"></asp:Label>
-                <a href="index.aspx">Powrót do strony głównej</a>
-                <a href="register.aspx">Nie masz konta? Zarejestruj się</a>
+                <a href="index.aspx"  id="linkLogin" runat="server">Powrót do strony głównej</a>
+                <a href="register.aspx"  id="linkReturn" runat="server">Nie masz konta? Zarejestruj się</a>
             </div>
         </div>
         <!--#include virtual="/PageComponents/Footer.aspx"-->

@@ -16,6 +16,18 @@ namespace SklepInternetowy
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((string)Session["lang"] == "eng")
+            {
+                tbSearch.Attributes["placeholder"] = "Search";
+                lbtnLogin.Text = "Log in";
+                lbtnRegister.Text = "Register";
+                btnLanguage.ImageUrl = "/Assets/Images/pl.svg";
+                lbtnAddItem.Text = "Add new item";
+                lbtnLogout.Text = "Log out";
+                lbtnMngOrders.Text = "Manage orders";
+                lbtnMngUsers.Text = "Manage users";
+            }
+
             if (Session["user"] == null)
             {
                 Response.Redirect("/index.aspx");
@@ -36,6 +48,10 @@ namespace SklepInternetowy
                 btn.ID = "lbtnUser";
                 btn.Attributes.Add("href", "/Account.aspx");
                 btn.Text = "Witaj " + ((User)Session["user"]).username + "!";
+                if ((string)Session["lang"] == "eng")
+                {
+                    btn.Text = "Welcome " + ((User)Session["user"]).username + "!";
+                }
                 login.Controls.Add(btn);
             }
 

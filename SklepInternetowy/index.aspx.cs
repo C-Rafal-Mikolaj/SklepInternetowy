@@ -21,6 +21,9 @@ namespace SklepInternetowy
                 lbtnLogin.Text = "Log in";
                 lbtnRegister.Text = "Register";
                 btnLanguage.ImageUrl = "/Assets/Images/pl.svg";
+                btnSort.Text = "Sort by";
+                btnCategory.Text = "Category";
+                btnColor.Text = "Color";
             }
 
             if (Session["user"] != null)
@@ -35,6 +38,10 @@ namespace SklepInternetowy
                 btn.ID = "lbtnUser";
                 btn.Click += lbtnUser_Click;
                 btn.Text = "Witaj " + ((User)Session["user"]).username + "!";
+                if ((string)Session["lang"] == "eng")
+                {
+                    btn.Text = "Welcome " + ((User)Session["user"]).username + "!";
+                }
                 login.Controls.Add(btn);
             }
 
@@ -64,6 +71,10 @@ namespace SklepInternetowy
                 {
                     containers[(int)(i / 4)].Controls.Add(product.getHtmlSmall());
                     product.btnBuy.Click += btnBuy_Click;
+                    if ((string)Session["lang"] == "eng")
+                    {
+                        product.btnBuy.Text = "Buy now";
+                    }
                     i++;
                 }
                 if (i % 4 != 0)
