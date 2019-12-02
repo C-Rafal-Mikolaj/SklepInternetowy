@@ -42,8 +42,21 @@ namespace SklepInternetowy
 
         protected void btnLanguage_Click(object sender, ImageClickEventArgs e)
         {
-
+            if (Session["lang"] == null)
+            {
+                Session["lang"] = "eng";
+            }
+            else
+            {
+                Session["lang"] = null;
+            }
+            Response.Redirect(Request.RawUrl);
         }
 
+        protected void btnSearch_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["search"] = ((TextBox)((ImageButton)sender).Parent.Controls[2]).Text;
+            Response.Redirect("/index.aspx");
+        }
     }
 }

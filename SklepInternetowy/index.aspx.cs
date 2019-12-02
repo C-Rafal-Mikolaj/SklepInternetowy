@@ -15,8 +15,14 @@ namespace SklepInternetowy
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            connect();
-            //tbSearch.Attributes.Add("placeholder", "Wyszukaj");
+            if ((string)Session["lang"] == "eng")
+            {
+                tbSearch.Attributes["placeholder"] = "Search";
+                lbtnLogin.Text = "Log in";
+                lbtnRegister.Text = "Register";
+                btnLanguage.ImageUrl = "/Assets/Images/pl.svg";
+            }
+
             if (Session["user"] != null)
             {
                 login.Controls.Clear();
@@ -33,68 +39,84 @@ namespace SklepInternetowy
             }
 
             //Ładowanie produktów
-            List<Product> products = getProducts("wszystkie", "all");
+            List<Product> products;
+            if (Session["search"]!=null)
+            {
+                products = searchProducts((string)Session["search"]);
+                Session["search"] = null;
+
+            }
+            else
+            {
+                products = getProducts("wszystkie", "all");
+            }
+            
             int i = 0;
-            HtmlGenericControl[] containers = new HtmlGenericControl[(int)(products.Count / 4) + 1];
-            for (int j = 0; j < containers.Length; j++)
+            try
             {
-                containers[j] = new HtmlGenericControl("div");
-                containers[j].Attributes["class"] = "row";
-            }
-            foreach (Product product in products)
-            {
-                containers[(int)(i / 4)].Controls.Add(product.getHtmlSmall());
-                product.btnBuy.Click += btnBuy_Click;
-                i++;
-            }
-            if (i % 4 != 0)
-                for (int j = 0; j < 4 - i % 4; j++)
+                HtmlGenericControl[] containers = new HtmlGenericControl[(int)(products.Count / 4) + 1];
+                for (int j = 0; j < containers.Length; j++)
                 {
-                    HtmlGenericControl col = new HtmlGenericControl("div");
-                    col.Attributes["class"] = "col productEmpty";
-                    containers[(int)(i / 4)].Controls.Add(col);
+                    containers[j] = new HtmlGenericControl("div");
+                    containers[j].Attributes["class"] = "row";
                 }
-            for (int j = 0; j < containers.Length; j++)
+                foreach (Product product in products)
+                {
+                    containers[(int)(i / 4)].Controls.Add(product.getHtmlSmall());
+                    product.btnBuy.Click += btnBuy_Click;
+                    i++;
+                }
+                if (i % 4 != 0)
+                    for (int j = 0; j < 4 - i % 4; j++)
+                    {
+                        HtmlGenericControl col = new HtmlGenericControl("div");
+                        col.Attributes["class"] = "col productEmpty";
+                        containers[(int)(i / 4)].Controls.Add(col);
+                    }
+                for (int j = 0; j < containers.Length; j++)
+                {
+                    pItems.Controls.Add(containers[j]);
+                }
+
+                //Ładowanie kategorii
+                List<string> categories = getCategories();
+                foreach (string category in categories)
+                {
+                    LinkButton btn = new LinkButton();
+                    btn.Text = category[0].ToString().ToUpper() + category.Substring(1);
+                    btn.Click += choosingCategories;
+                    btn.CommandArgument = category[0].ToString().ToUpper() + category.Substring(1);
+                    btn.CssClass = "dropdown-item";
+
+                    pCategory.Controls.Add(btn);
+                }
+                LinkButton btnW = new LinkButton();
+                btnW.Text = "Wszystkie";
+                btnW.Click += choosingCategories;
+                btnW.CommandArgument = "wszystkie";
+                btnW.CssClass = "dropdown-item";
+                pCategory.Controls.Add(btnW);
+                //Ładowanie kolorów
+                List<string> colors = getColors();
+                foreach (string color in colors)
+                {
+                    LinkButton btn = new LinkButton();
+                    btn.Text = color[0].ToString().ToUpper() + color.Substring(1);
+                    btn.Click += choosingColors;
+                    btn.CssClass = "dropdown-item";
+
+                    pColor.Controls.Add(btn);
+                }
+                LinkButton btnW2 = new LinkButton();
+                btnW2.Text = "Wszystkie";
+                btnW2.Click += choosingColors;
+                btnW2.CommandArgument = "wszystkie";
+                btnW2.CssClass = "dropdown-item";
+                pColor.Controls.Add(btnW2);
+            }catch(Exception ex)
             {
-                pItems.Controls.Add(containers[j]);
+                MessageBox(this, "Brak połączenia z bazą danych");
             }
-
-            //Ładowanie kategorii
-            List<string> categories = getCategories();
-            foreach (string category in categories)
-            {
-                LinkButton btn = new LinkButton();
-                btn.Text = category[0].ToString().ToUpper() + category.Substring(1);
-                btn.Click += choosingCategories;
-                btn.CommandArgument = category[0].ToString().ToUpper() + category.Substring(1);
-                btn.CssClass = "dropdown-item";
-
-                pCategory.Controls.Add(btn);
-            }
-            LinkButton btnW = new LinkButton();
-            btnW.Text = "Wszystkie";
-            btnW.Click += choosingCategories;
-            btnW.CommandArgument = "wszystkie";
-            btnW.CssClass = "dropdown-item";
-            pCategory.Controls.Add(btnW);
-            //Ładowanie kolorów
-            List<string> colors = getColors();
-            foreach (string color in colors)
-            {
-                LinkButton btn = new LinkButton();
-                btn.Text = color[0].ToString().ToUpper() + color.Substring(1);
-                btn.Click += choosingColors;
-                btn.CssClass = "dropdown-item";
-
-                pColor.Controls.Add(btn);
-            }
-            LinkButton btnW2 = new LinkButton();
-            btnW2.Text = "Wszystkie";
-            btnW2.Click += choosingColors;
-            btnW2.CommandArgument = "wszystkie";
-            btnW2.CssClass = "dropdown-item";
-            pColor.Controls.Add(btnW2);
-
         }
 
         public static MySqlConnection connect()
@@ -139,6 +161,23 @@ namespace SklepInternetowy
 
             command.ExecuteNonQuery();
             return 0;
+        }
+
+        public List<Product> searchProducts(string query)
+        {
+            MySqlConnection conn = connect();
+            if (conn == null) return null;
+            MySqlCommand command = conn.CreateCommand();
+
+            command.CommandText = "SELECT * FROM produkty WHERE name LIKE '%"+query+"%' ORDER BY price ASC";
+
+            MySqlDataReader reader = command.ExecuteReader();
+            List<Product> data = new List<Product>();
+            while (reader.Read())
+            {
+                data.Add(new Product((int)reader["ID"], (string)reader["name"], (string)reader["description"], (double)reader["price"], (string)reader["color"], (string)reader["image"], (string)reader["category"]));
+            }
+            return data;
         }
 
         public List<Product> getProducts(string type, string type2)
@@ -352,7 +391,15 @@ namespace SklepInternetowy
 
         protected void btnLanguage_Click(object sender, ImageClickEventArgs e)
         {
-
+            if (Session["lang"] == null)
+            {
+                Session["lang"] = "eng";
+            }
+            else
+            {
+                Session["lang"] = null;
+            }
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void lbtnUser_Click(object sender, EventArgs e)
@@ -361,7 +408,21 @@ namespace SklepInternetowy
         }
         protected void btnBuy_Click(object sender, EventArgs e)
         {
+            
+            MessageBox(this, "Dodano przedmiot do koszyka!");
+        }
 
+        public static void MessageBox(System.Web.UI.Page page, string strMsg)
+        {
+            //+ character added after strMsg "')"
+            ScriptManager.RegisterClientScriptBlock(page, page.GetType(), "alertMessage", "alert('" + strMsg + "')", true);
+
+        }
+
+        protected void btnSearch_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["search"] = ((TextBox)((ImageButton)sender).Parent.Controls[2]).Text;
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

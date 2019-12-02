@@ -90,12 +90,12 @@ namespace SklepInternetowy
             if (conn == null) return null;
             MySqlCommand command = conn.CreateCommand();
 
-            command.CommandText = "SELECT orders.ID, orders.username, produkty.name, orders.quantity, orders.status FROM orders INNER JOIN produkty ON orders.item=produkty.ID";
+            command.CommandText = "SELECT orders.ID, orders.username, produkty.name, orders.status FROM orders INNER JOIN produkty ON orders.item=produkty.ID";
             MySqlDataReader reader = command.ExecuteReader();
             List<Order> data = new List<Order>();
             while (reader.Read())
             {
-                data.Add(new Order((int)reader["ID"], (string)reader["username"], (string)reader["name"], (int)reader["quantity"], (string)reader["status"]));
+                data.Add(new Order((int)reader["ID"], (string)reader["username"], (string)reader["name"], (string)reader["status"]));
             }
             return data;
         }
@@ -107,7 +107,15 @@ namespace SklepInternetowy
 
         protected void btnLanguage_Click(object sender, ImageClickEventArgs e)
         {
-
+            if (Session["lang"] == null)
+            {
+                Session["lang"] = "eng";
+            }
+            else
+            {
+                Session["lang"] = null;
+            }
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void lbtnLogout_Click(object sender, EventArgs e)
@@ -191,6 +199,12 @@ namespace SklepInternetowy
                     return;
                 }
             }
+        }
+
+        protected void btnSearch_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["search"] = ((TextBox)((ImageButton)sender).Parent.Controls[2]).Text;
+            Response.Redirect("/index.aspx");
         }
     }
 }

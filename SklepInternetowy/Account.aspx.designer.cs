@@ -94,12 +94,30 @@ namespace SklepInternetowy {
         protected global::System.Web.UI.WebControls.LinkButton lbtnLogout;
         
         /// <summary>
-        /// Kontrolka LinkButton4.
+        /// Kontrolka lbtnOrders.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnOrders;
+        
+        /// <summary>
+        /// Kontrolka content.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl content;
+        
+        /// <summary>
+        /// Kontrolka Orders.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Orders;
     }
 }

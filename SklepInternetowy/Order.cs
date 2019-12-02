@@ -12,17 +12,15 @@ namespace SklepInternetowy
         public int ID { get; set; }
         public string username { get; set; }
         public string item { get; set; }
-        public int quantity { get; set; }
         public string status { get; set; }
         public Button changeStatus { get; set; }
         public DropDownList select { get; set; }
 
-        public Order(int ID, string username, string item, int quantity,string status)
+        public Order(int ID, string username, string item, string status)
         {
             this.ID = ID;
             this.username = username;
             this.item = item;
-            this.quantity = quantity;
             this.status = status;
         }
 
@@ -42,10 +40,7 @@ namespace SklepInternetowy
             item.Attributes.Add("class", "orderItem");
             item.InnerText = "Item: " + this.item;
             container.Controls.Add(item);
-            HtmlGenericControl quantity = new HtmlGenericControl("div");
-            quantity.Attributes.Add("class", "orderQuantity");
-            quantity.InnerText = "Quantity: " + this.quantity.ToString();
-            container.Controls.Add(quantity);
+            
             HtmlGenericControl status = new HtmlGenericControl("div");
             status.Attributes.Add("class", "orderStatus");
             status.InnerText = "Status: " + this.status;
@@ -73,6 +68,31 @@ namespace SklepInternetowy
             stat.Text = "Zmień status";
             this.changeStatus = stat;
             container.Controls.Add(stat);
+            return container;
+        }
+
+        public HtmlGenericControl getSmallHtmlUser()
+        {
+            HtmlGenericControl container = new HtmlGenericControl("div");
+            container.Attributes.Add("class", "orderItem");
+            HtmlGenericControl id = new HtmlGenericControl("div");
+            id.Attributes.Add("class", "orderID");
+            id.InnerText = "ID: " + this.ID;
+            container.Controls.Add(id);
+            HtmlGenericControl username = new HtmlGenericControl("div");
+            username.Attributes.Add("class", "orderUsername");
+            username.InnerText = "Username: " + this.username;
+            container.Controls.Add(username);
+            HtmlGenericControl item = new HtmlGenericControl("div");
+            item.Attributes.Add("class", "orderItem");
+            item.InnerText = "Item: " + this.item;
+            container.Controls.Add(item);
+            
+            HtmlGenericControl status = new HtmlGenericControl("div");
+            status.Attributes.Add("class", "orderStatus");
+            status.InnerText = "Status: " + this.status;
+            container.Controls.Add(status);
+            
             return container;
         }
     }

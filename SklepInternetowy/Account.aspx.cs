@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -35,7 +36,28 @@ namespace SklepInternetowy
                 login.Controls.Add(btn);
             }
 
-            
+            List<Order> orders = getOrders();
+            foreach (Order order in orders)
+            {
+                Orders.Controls.Add(order.getSmallHtmlUser());
+            }
+
+        }
+
+        public List<Order> getOrders()
+        {
+            MySqlConnection conn = index.connect();
+            if (conn == null) return null;
+            MySqlCommand command = conn.CreateCommand();
+
+            command.CommandText = "SELECT orders.ID, orders.username, produkty.name, orders.status FROM orders INNER JOIN produkty ON orders.item=produkty.ID WHERE orders.username='"+ ((User)Session["user"]).username+ "'";
+            MySqlDataReader reader = command.ExecuteReader();
+            List<Order> data = new List<Order>();
+            while (reader.Read())
+            {
+                data.Add(new Order((int)reader["ID"], (string)reader["username"], (string)reader["name"], (string)reader["status"]));
+            }
+            return data;
         }
 
         protected void btnCart_Click(object sender, ImageClickEventArgs e)
@@ -45,12 +67,26 @@ namespace SklepInternetowy
 
         protected void btnLanguage_Click(object sender, ImageClickEventArgs e)
         {
-
+            if (Session["lang"] == null)
+            {
+                Session["lang"] = "eng";
+            }
+            else
+            {
+                Session["lang"] = null;
+            }
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void lbtnLogout_Click(object sender, EventArgs e)
         {
             Session["user"] = null;
+            Response.Redirect("/index.aspx");
+        }
+
+        protected void btnSearch_Click(object sender, ImageClickEventArgs e)
+        {
+            Session["search"] = ((TextBox)((ImageButton)sender).Parent.Controls[2]).Text;
             Response.Redirect("/index.aspx");
         }
     }

@@ -91,6 +91,7 @@
     <Content Include="Assets\Images\black-friday-deals.jpg" />
     <Content Include="Assets\Images\login.png" />
     <Content Include="Assets\Images\password.png" />
+    <Content Include="Assets\Images\pl.svg" />
     <Content Include="Assets\Images\search.png" />
     <Content Include="Assets\Images\search_white.png" />
     <Content Include="Assets\Images\shoping.png" />
