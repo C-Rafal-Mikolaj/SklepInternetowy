@@ -116,7 +116,7 @@
                         <div class="opt"><asp:LinkButton runat="server" ID="lbtnMngUsers" OnClick="lbtnMngUsers_Click">Zarządzaj użytkownikami</asp:LinkButton></div>
                         <div class="opt"><asp:LinkButton runat="server" ID="lbtnMngOrders" OnClick="lbtnMngOrders_Click">Zarządzaj zamówieniami</asp:LinkButton></div>
                         <div class="opt"><asp:LinkButton runat="server" ID="lbtnAddItem" OnClick="lbtnAddItem_Click">Dodaj produkt</asp:LinkButton></div>
-                        <div class="opt"><asp:LinkButton runat="server" ID="lbtnMng2">JD</asp:LinkButton></div>
+                        
                     </div>
                 </div>
                 <div id="content" runat="server">
